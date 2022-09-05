@@ -1,7 +1,14 @@
 # Lua
+This is a fork of the lua programming language that is converted to CMake. It presents it self with two targets: luaLub and lua. The lua target is used to build lua programming language. LuaLib is a target used to embed lua in your C/C++ project.
 
-This is the repository of Lua development code, as seen by the Lua team. It contains the full history of all commits but is mirrored irregularly. For complete information about Lua, visit [Lua.org](https://www.lua.org/).
-
-Please **do not** send pull requests. To report issues, post a message to the [Lua mailing list](https://www.lua.org/lua-l.html).
-
-Download official Lua releases from [Lua.org](https://www.lua.org/download.html).
+## Example of use as library
+### yourProjectDir:
+- src/
+- build/
+- CMakeLists.txt
+- luaCMake (git submodule for example)
+### In your CMakeLists.txt add:
+```
+add_subdirectory(luaCMake)
+target_link_libraries(<your target> PRIVATE luaLib)
+```
