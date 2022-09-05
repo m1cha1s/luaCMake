@@ -14,27 +14,27 @@ add_library(luaLib
     lfunc.c
     lgc.c
     llex.c
-	lmem.c
+    lmem.c
     lobject.c
     lopcodes.c
     lparser.c
     lstate.c
     lstring.c
     ltable.c
-	ltm.c
+    ltm.c
     lundump.c
     lvm.c
     lzio.c
     ltests.c
     lauxlib.c
-	lbaselib.c
+    lbaselib.c
     ldblib.c
     liolib.c
     lmathlib.c
     loslib.c
     ltablib.c
     lstrlib.c
-	lutf8lib.c
+    lutf8lib.c
     loadlib.c
     lcorolib.c
     linit.c
@@ -43,11 +43,15 @@ add_library(luaLib
 target_include_directories(luaLib PUBLIC .)
 target_link_libraries(luaLib PUBLIC m)
 
-project(lua)
+    if(NOT CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE)
 
-add_executable(lua
-    onelua.c
-)
+    project(lua)
 
-target_include_directories(lua PUBLIC .)
-target_link_libraries(lua PUBLIC luaLib)
+    add_executable(lua
+        onelua.c
+    )
+
+    target_include_directories(lua PUBLIC .)
+    target_link_libraries(lua PUBLIC luaLib)
+
+endif()
