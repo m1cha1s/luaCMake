@@ -41,9 +41,9 @@ add_library(luaLib
 )
 
 target_include_directories(luaLib PUBLIC .)
-target_link_libraries(luaLib PUBLIC m)
+target_link_libraries(luaLib PRIVATE m)
 
-    if(NOT CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE)
+if(NOT CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE)
 
     project(lua)
 
